@@ -1,0 +1,21 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "ThisWorkbook"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Option Explicit
+
+Private Sub Workbook_Open()
+
+Dim strCPN As String
+
+    strCPN = CP_NAME
+    Range("AB1") = Strings.Left(strCPN, 2)
+    Range("B5") = Now()
+    Range("M28").FormulaR1C1 = "=SUM(R[-20]C:R[-1]C[2])"
+    
+End Sub
