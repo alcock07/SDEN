@@ -42,6 +42,9 @@ Sub Prn_Sht()
         '適用欄と金額がブランクの時は行の高さを0にする
         If Cells(lngR, 7) = "" And Cells(lngR + 1, 7) = "" And Cells(lngR, 13) = "" Then
                 Rows(lngR & ":" & lngR + 1).RowHeight = 0
+        ElseIf InStr(1, Cells(lngR, 7), "タクシ") <> 0 Then
+            Cells(lngR, 2) = "726"
+            Cells(lngR + 1, 2) = "旅費交通費"
         ElseIf InStr(1, Cells(lngR, 7), "駐車") <> 0 Then
             Cells(lngR, 2) = "735"
             Cells(lngR + 1, 2) = "車輌運送費"
@@ -66,6 +69,12 @@ Sub Prn_Sht()
             Cells(lngR, 2) = "727"
             Cells(lngR + 1, 2) = "通信費"
             Cells(lngR + 1, 16) = strKNM
+        ElseIf InStr(1, Cells(lngR + 1, 2), "会議費") <> 0 Then
+            Cells(lngR, 2) = "734"
+        ElseIf InStr(1, Cells(lngR + 1, 2), "旅費交通費") <> 0 Then
+            Cells(lngR, 2) = "726"
+        ElseIf InStr(1, Cells(lngR + 1, 2), "交際") <> 0 Then
+            Cells(lngR, 2) = "733"
         End If
         lngR = lngR + 2
         If lngR > 26 Then Exit Do
